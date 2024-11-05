@@ -44,7 +44,6 @@ const Login = () => {
         if (loginUser.fulfilled.match(result)) {
             navigate('/todos');
             showSnackbar('Login successful!', 'success');
-
         }
     };
 

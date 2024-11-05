@@ -41,6 +41,7 @@ const todoSlice = createSlice({
         },
         clearTasks: (state) => {
             state.tasks = [];
+            state.deletedTasks = [];
         },
         updateTask: (state, action) => {
             const { id, newText } = action.payload;
