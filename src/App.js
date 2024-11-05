@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import Login from './components/Login';
+import TodoPage from './components/TodoPage';
+import store from './redux/store';
+import { SnackbarProvider } from './context/SnackbarContext';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Provider store={store}>
+             <SnackbarProvider>
+                <Router>
+                    <Routes>
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/todos" element={<TodoPage />}/>
+                        <Route path="*" element={<Navigate to="/login" />} />
+                    </Routes>
+                </Router>
+             </SnackbarProvider>
+          
+        </Provider>
+    );
 }
 
 export default App;
