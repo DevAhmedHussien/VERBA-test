@@ -50,7 +50,7 @@ const TodoPage = () => {
         if (user == null) {
             navigate('/login');
         }
-    }, [user]);
+    }, [user, navigate]);
     
     //** add Task
     const handleAddTask = () => {

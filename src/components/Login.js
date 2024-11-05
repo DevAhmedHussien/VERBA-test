@@ -36,15 +36,16 @@ const Login = () => {
         if (user) {
             navigate('/todos');
         }
-    }, [user]);
+    }, [user, navigate]);
 
     //** handle Login method
     const handleLogin = async () => {
         const result = await dispatch(loginUser({ username, password }));
         if (loginUser.fulfilled.match(result)) {
             navigate('/todos');
+            showSnackbar('Login successful!', 'success');
+
         }
-        showSnackbar('Login successful!', 'success');
     };
 
     // showing and hide password
